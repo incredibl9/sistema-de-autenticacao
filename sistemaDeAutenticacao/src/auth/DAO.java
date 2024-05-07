@@ -1,5 +1,6 @@
 package auth;
 
+import java.awt.CardLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +28,8 @@ public class DAO {
 				ResultSet rs = stmt.executeQuery(); 
 				
 				if(rs.next()) {
-					
+					CardLayout cardLayout = (CardLayout) viewer.cards.getLayout();
+					cardLayout.show(viewer.cards, "profile");
 				} else {
 					JOptionPane.showMessageDialog(null, "Credenciais incorretas!");
 				}

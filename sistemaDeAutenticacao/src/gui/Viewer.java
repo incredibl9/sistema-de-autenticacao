@@ -25,7 +25,9 @@ import java.awt.event.MouseEvent;
 public class Viewer extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	public JPanel contentPane;
+	public JPanel profile;
+	public JPanel cards;
 	public JTextField tfUserLogin;
 	public JPasswordField pfPasswordLogin;
 	public JTextField tfUserSignUp;
@@ -61,12 +63,11 @@ public class Viewer extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new CardLayout(0, 0));
 			
-		JPanel cards = new JPanel();
+		cards = new JPanel();
 		cards.setBackground(Color.WHITE);
 		cards.setBorder(new EmptyBorder(0, 0, 0, 0));
-		cards.setBounds(0, 0, 434, 261);
 		contentPane.add(cards);
 		cards.setLayout(new CardLayout(0, 0));
 		
@@ -75,7 +76,7 @@ public class Viewer extends JFrame {
 		JPanel login = new JPanel();
 		login.setBackground(Color.WHITE);
 		login.setBorder(new EmptyBorder(0, 0, 0, 0));
-		cards.add(login, "name_327897487561700");
+		cards.add(login, "login");
 		login.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
@@ -135,6 +136,7 @@ public class Viewer extends JFrame {
 				CardLayout cardLayout = (CardLayout) cards.getLayout();
 				cardLayout.show(cards, "signup");
 			}
+				
 		});
 		lblNewLabel_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel_3.setForeground(new Color(0, 120, 215));
@@ -145,7 +147,7 @@ public class Viewer extends JFrame {
 		JPanel signup = new JPanel();
 		signup.setBackground(Color.WHITE);
 		signup.setBorder(new EmptyBorder(0, 0, 0, 0));
-		cards.add(signup, "name_328304047873200");
+		cards.add(signup, "signup");
 		signup.setLayout(null);
 		
 		JPanel panel_1_1 = new JPanel();
@@ -226,13 +228,18 @@ public class Viewer extends JFrame {
 		
 		JPanel profile = new JPanel();
 		profile.setBorder(new EmptyBorder(0, 0, 0, 0));
-		profile.setBackground(new Color(0, 102, 51));
-		cards.add(profile, "name_329868878211300");
+		profile.setBackground(new Color(0, 102, 204));
+		cards.add(profile, "profile");
 		profile.setLayout(null);
+		
+		JLabel lblNewLabel_5 = new JLabel("Você foi autenticado.");
+		lblNewLabel_5.setForeground(Color.WHITE);
+		lblNewLabel_5.setFont(new Font("Poppins", Font.BOLD, 14));
+		lblNewLabel_5.setBounds(115, 111, 165, 14);
+		profile.add(lblNewLabel_5);
 		
 		cards.add(signup, "signup");
 		
 				
 	}
-
 }
